@@ -1,6 +1,6 @@
 <?
 	/*
-		BitrixCacheCleaner v1.2 - https://github.com/creadome/BitrixCacheCleaner
+		BitrixCacheCleaner v1.3 - https://github.com/creadome/BitrixCacheCleaner
 		Быстрая очистка кеша 1С-Битрикс 		 				
 
 		(c) 2013 Станислав Васильев - http://creado.me
