@@ -3,7 +3,7 @@ BitrixCacheCleaner
 
 Гаджет для панели управления 1С-Битрикс, позволяющий быстро очистить неуправляемый кеш, управляемый и миниатюры изображений ([CFile::ResizeImageGet](http://dev.1c-bitrix.ru/api_help/main/reference/cfile/resizeimageget.php)).
 
-Помимо вызова стандартной функции [BXClearCache](http://dev.1c-bitrix.ru/api_help/main/functions/other/bxclearcache.php) производится удаление директорий `/bitrix/cache/`, `/bitrix/managed_cache/` и `/upload/resize_cache/`.
+Помимо вызова стандартной функции [BXClearCache](http://dev.1c-bitrix.ru/api_help/main/functions/other/bxclearcache.php), производится удаление директорий `/bitrix/cache/`, `/bitrix/managed_cache/` и `/upload/resize_cache/`.
 
 Гаджет отображает статистику по количеству файлов кеша и их общему размеру.
 
