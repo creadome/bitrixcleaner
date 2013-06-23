@@ -12,5 +12,5 @@ BitrixCacheCleaner
 
 1. Создайте свое пространство имен для гаджетов, например `/bitrix/gadgets/tools/`;
 2. Создайте внутри директорию для нового гаджета, например `cache`;
-3. Скопируйте в `/bitrix/gadgets/tools/cache/` файлы `.description.php` и `indedx.php`;
+3. Скопируйте в `/bitrix/gadgets/tools/cache/` файлы `.description.php` и `index.php`;
 4. В панели управления добавьте на рабочий стол гаджет "Очистка кеша" (Добавить гаджет / Контент / Очистка кеша);
