@@ -1,7 +1,7 @@
 BitrixCacheCleaner
 ==================
 
-![Панель управления](https://raw.github.com/creadome/BitrixCacheCleaner/master/screen.png)
+![Панель управления](https://raw.github.com/creadome/BitrixCacheCleaner/master/cleaner.png)
 
 Гаджет для панели управления 1С-Битрикс, позволяющий быстро очистить неуправляемый кеш, управляемый и миниатюры изображений ([CFile::ResizeImageGet](http://dev.1c-bitrix.ru/api_help/main/reference/cfile/resizeimageget.php)).
 
