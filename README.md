@@ -1,7 +1,7 @@
-BitrixCacheCleaner
-==================
+Bitrix Cleaner
+==============
 
-![Панель управления](https://raw.github.com/creadome/BitrixCacheCleaner/master/cleaner.png)
+![Панель управления](https://raw.github.com/creadome/bitrixcleaner/master/cleaner.png)
 
 Гаджет для панели управления 1С-Битрикс, позволяющий быстро очистить неуправляемый кеш, управляемый и миниатюры изображений ([CFile::ResizeImageGet](http://dev.1c-bitrix.ru/api_help/main/reference/cfile/resizeimageget.php)).
 
@@ -13,6 +13,5 @@ BitrixCacheCleaner
 ---------
 
 1. Создайте свое пространство имен для гаджетов, например `/bitrix/gadgets/tools/`;
-2. Создайте внутри директорию для нового гаджета, например `cache`;
-3. Скопируйте в `/bitrix/gadgets/tools/cache/` файлы `gadget/.description.php` и `gadget/index.php`;
-4. В панели управления добавьте на рабочий стол гаджет "Очистка кеша" (Добавить гаджет / Контент / Очистка кеша);
+2. Скопируйте папку `cleaner` в `/bitrix/gadgets/tools/`;
+3. В панели управления добавьте на рабочий стол гаджет "Bitrix Cleaner" (Добавить гаджет / Контент / Bitrix Cleaner);
