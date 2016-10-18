@@ -1,9 +1,9 @@
 <?
 	/*
-		Bitrix Cleaner v2.2 - https://github.com/creadome/bitrixcleaner
+		Bitrix Cleaner v2.3 - https://github.com/creadome/bitrixcleaner
 		Быстрая очистка 1С-Битрикс
 
-		(c) 2015 Станислав Васильев - http://creado.me
+		(c) 2016 Станислав Васильев - https://creado.me
 		creadome@gmail.com
 	*/
 
