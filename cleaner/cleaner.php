@@ -1,27 +1,50 @@
 <?
 	/*
-		Bitrix Cleaner v2.2 - https://github.com/creadome/bitrixcleaner
+		Bitrix Cleaner v2.3 - https://github.com/creadome/bitrixcleaner
 		Быстрая очистка 1С-Битрикс
 
-		(c) 2015 Станислав Васильев - http://creado.me
+		(c) 2015 Станислав Васильев - https://creado.me
 		creadome@gmail.com
 	*/
 
 	require $_SERVER['DOCUMENT_ROOT'].'/bitrix/modules/main/include/prolog_admin_before.php';
 
-	$trash = array(
-		'cache' => array(
-			'/bitrix/cache/' => 'Неуправляемый кеш',
-			'/bitrix/managed_cache/' => 'Управляемый кеш',
-			'/bitrix/html_pages/' => 'HTML кеш'
+	$list = array(
+		array(
+			'path' => '/bitrix/managed_cache/',
+			'type' => 'Управляемый кеш',
+
+			'delete' => true
 		),
 
-		'files' => array(
-			'/upload/resize_cache/' => 'Кеш изображений'
+		array(
+			'path' => '/bitrix/stack_cache/',
+			'type' => 'Управляемый кеш',
+
+			'delete' => true
+		),
+
+		array(
+			'path' => '/bitrix/cache/',
+			'type' => 'Неуправляемый кеш'
+		),
+
+		array(
+			'path' => '/bitrix/html_pages/',
+			'type' => 'HTML кеш'
+		),
+
+		array(
+			'path' => '/upload/resize_cache/',
+			'type' => 'Кеш изображений',
+
+			'delete' => true
 		)
 	);
 
 	if ($_GET['clean']) {
+		// /bitrix/modules/main/admin/cache.php
+
 		BXClearCache(true);
 
 		$GLOBALS['CACHE_MANAGER']->CleanAll();
@@ -30,22 +53,22 @@
 		$staticHtmlCache = \Bitrix\Main\Data\StaticHtmlCache::getInstance();
 		$staticHtmlCache->deleteAll();
 
-		foreach ($trash['files'] as $files => $name) DeleteDirFilesEx($files);
+		foreach ($list as $item) if ($item['delete']) DeleteDirFilesEx($item['path']);
 	}
 
-	function countsize($directory) {
+	function countsize($path) {
 		$count = array('file' => 0, 'size' => 0);
 
-		foreach (scandir($directory) as $file) {
+		foreach (scandir($path) as $file) {
 			if ($file != '.' && $file != '..') {
-				if (is_dir($directory.$file)) {
-					$inner = countsize($directory.$file.'/');
+				if (is_dir($path.$file)) {
+					$inner = countsize($path.$file.'/');
 
 					$count['file'] += $inner['file'];
 					$count['size'] += $inner['size'];
 				} else {
 					$count['file'] ++;
-					$count['size'] += filesize($directory.$file);
+					$count['size'] += filesize($path.$file);
 				}
 			}
 		}
@@ -56,27 +79,25 @@
 
 <table>
 	<tr>
-		<th>Описание</th>
+		<th>Тип</th>
 		<th>Путь</th>
 		<th>Файлы</th>
 		<th>Размер</th>
 	</tr>
 
 	<?
-		foreach ($trash as $type) {
-			foreach ($type as $directory => $name) {
-				$count = countsize($_SERVER['DOCUMENT_ROOT'].$directory);
+		foreach ($list as $item) {
+			$count = countsize($_SERVER['DOCUMENT_ROOT'].$item['path']);
 	?>
 
-				<tr>
-					<td><?=$name?></td>
-					<td><a href="/bitrix/admin/fileman_admin.php?lang=ru&amp;path=<?=$directory?>"><?=$directory?></a></td>
-					<td><?=$count['file']?></td>
-					<td><?=round($count['size'] / 1048576, 2)?> Мб</td>
-				</tr>
+			<tr>
+				<td><?=$item['type']?></td>
+				<td><a href="/bitrix/admin/fileman_admin.php?lang=ru&amp;path=<?=$item['path']?>"><?=$item['path']?></a></td>
+				<td><?=$count['file']?></td>
+				<td><?=round($count['size'] / 1048576, 2)?> Мб</td>
+			</tr>
 
 	<?
-			}
 		}
 	?>
 </table>
