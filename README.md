@@ -1,5 +1,4 @@
-Bitrix Cleaner
-==============
+# Bitrix Cleaner
 
 ![Панель управления](https://raw.github.com/creadome/bitrixcleaner/master/cleaner.png)
 
@@ -9,8 +8,7 @@ Bitrix Cleaner
 * Поддержка композитного сайта
 * Подсчет количества файлов кеша и их размера
 
-Установка
----------
+### Установка
 
 1. Создайте свое пространство имен для гаджетов, например `/bitrix/gadgets/tools/`;
 2. Скопируйте папку `cleaner` в `/bitrix/gadgets/tools/`;
