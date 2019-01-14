@@ -87,7 +87,12 @@
 
 	<?
 		foreach ($list as $item) {
-			$count = countsize($_SERVER['DOCUMENT_ROOT'].$item['path']);
+		    if (file_exists($_SERVER['DOCUMENT_ROOT'].$item['path'])) {
+                        $count = countsize($_SERVER['DOCUMENT_ROOT'] . $item['path']);
+                    }else{
+		        $count['file'] = 0;
+		        $count['size'] = 0;
+                    }
 	?>
 
 			<tr>
